@@ -12,6 +12,7 @@ export default function App() {
 
   const getData = () => {
     setIsFetchingData(true);
+    setTimeout (() => {
     fetchMissions()
       .then(res => {
         console.log(res);
@@ -22,7 +23,9 @@ export default function App() {
         setIsFetchingData(false);
         setError(err.message);
       });
-  };
+  });
+};
+
   return (
     <div className="App">
       <h1>Space Missions</h1>
@@ -30,4 +33,4 @@ export default function App() {
       <MissionsList error={error} missions={missions} />
     </div>
   );
-}
+  }
